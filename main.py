@@ -3,13 +3,19 @@
 import callUSB;
 import connect;
 
+import os, sys;
+
+def main():
+	while True:
+		if connect.check() == False:
+			if callUSB.callUSB() != 0:	
+				conf = callUSB.confFile();
+				connect.connect(conf[0], conf[1]);
+				print("Connected.");
+			else:
+				pass;
+		else:
+			print("connected already.");
 
 if __name__ == '__main__':
-	status = 0;
-	while status == 0:
-		if callUSB.callUSB() != 0:	
-			conf = callUSB.confFile();
-			connect.connect(conf[0], conf[1]);
-			status = 1;
-		else:
-			continue;
+	main();
