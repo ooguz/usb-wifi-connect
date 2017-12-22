@@ -16,17 +16,20 @@ def callUSB():
 		if files.count('wifi.txt') == 1:
 			usbNo = i;
 			usbName = os.getcwd();
+			return usbName;
 		else:
 			i = i+1;
-	return usbName;
+	return 0;
 
 def confFile():
-	os.chdir(callUSB());
-	wifiConf = open('wifi.txt', 'r');
-	info = wifiConf.read();
-	info = info.split('\n');
-	return info;
-	
+	if callUSB() != 0:
+		os.chdir(callUSB());
+		wifiConf = open('wifi.txt', 'r');
+		info = wifiConf.read();
+		info = info.split('\n');
+		return info;
+	else:
+		return '\n';
 if __name__ == '__main__':
 	
 	print(confFile());
