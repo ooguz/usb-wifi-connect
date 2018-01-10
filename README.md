@@ -33,7 +33,7 @@ password
 
 ## Lisanslar/Licenses
 
-Bu yazılım GNU GPL v3+ ile lisanslanmıştır. 
+Bu yazılım GNU GPL v3 ile lisanslanmıştır. 
 
 ```daemon.py``` modülü CC BY-SA ile lisanslanmıştır.
 
