@@ -8,10 +8,10 @@ def runCommand(cmd):
 
 def callUSB():
 	usbNo = 0;
-	os.chdir('/media/{}/'.format(os.getlogin()));
+	os.chdir('/media/{}/'.format(os.environ['USER']));
 	mountPoint = os.listdir();
 	for i in range(0, len(mountPoint)):		
-		os.chdir(mountPoint[i]);
+		os.chdir('/media/' + os.environ['USER'] + '/' + mountPoint[i]);
 		files = os.listdir();
 		if files.count('wifi.txt') == 1:
 			usbNo = i;
